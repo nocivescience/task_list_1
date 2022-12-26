@@ -1,10 +1,23 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 export const Navbar = () => {
+  const colorTag=[
+    'btn btn-outline-warning',
+    'btn btn-outline-success',
+    'btn btn-outline-alerts',
+    'btn btn btn-primary',
+    'btn btn btn-secondary',
+    'btn btn btn-info',
+    'btn btn btn-light',
+    'btn btn btn-dark',
+  ]
+  function handleColor(){
+    return Math.floor(Math.random()*colorTag.length)
+  }
   return (
     <div className="w-100">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <NavLink className="nav-item nav-link text-white" to='/'>
+          <NavLink className="nav-item nav-link text-white" to="/">
             Home
           </NavLink>
           <button
@@ -21,56 +34,28 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to='/tasks'>
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/tasks"
+                >
                   Tasks
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
+                <NavLink className="nav-link" to="/contacts">
+                  Contacts
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link disabled"
-                  href="#"
-                  tabIndex="-1"
-                  aria-disabled="true"
-                >
-                  Disabled
-                </a>
+                <NavLink className="nav-link" to="/products">
+                  Products
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/formulario">
+                  Formulario
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex">
@@ -80,7 +65,7 @@ export const Navbar = () => {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className={colorTag[handleColor()]} type="submit">
                 Search
               </button>
             </form>
